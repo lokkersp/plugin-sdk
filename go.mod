@@ -1,4 +1,4 @@
-module github.com/terraform-docs/plugin-sdk
+module github.com/lokkersp/plugin-sdk
 
 go 1.16
 

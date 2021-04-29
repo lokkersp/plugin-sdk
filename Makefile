@@ -49,6 +49,11 @@ staticcheck: ## Run staticcheck
 	@ $(MAKE) --no-print-directory log-$@
 	go run honnef.co/go/tools/cmd/staticcheck -- ./...
 
+.PHONY: build
+build: ## Run tests
+	@ $(MAKE) --no-print-directory log-$@
+	go build -v ./...
+
 .PHONY: test
 test: ## Run tests
 	@ $(MAKE) --no-print-directory log-$@
