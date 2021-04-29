@@ -54,6 +54,12 @@ type Module interface {
 
 	// HasResources indicates if the module has resources.
 	HasResources() bool
+
+	GetInputs() []*Input
+
+	GetResources() []*Resource
+
+	GetSourceModule() *module
 }
 
 // WithHeader adds header to Module.
@@ -149,6 +155,18 @@ func NewModule(fns ...SectionFn) Module {
 	for _, fn := range fns {
 		fn(m)
 	}
+	return m
+}
+
+func (m *module) GetInputs() []*Input {
+	return m.Inputs
+}
+
+func (m *module) GetResources() []*Resource {
+	return m.Resources
+}
+
+func (m *module) GetSourceModule() *module {
 	return m
 }
 
